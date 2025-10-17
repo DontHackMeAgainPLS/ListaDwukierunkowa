@@ -1,0 +1,13 @@
+# Pliki generowane przez Visual Studio, które powinny być ignorowane
+*.vcxproj.user
+*.suo
+*.pdb
+*.obj
+*.ncb
+*.aps
+*.log
+.vs/
+ipch/
+[Dd]ebug/
+[Rr]elease/
+x64/
