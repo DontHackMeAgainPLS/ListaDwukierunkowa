@@ -1,6 +1,8 @@
 #ifndef ITERATOR_H
 #define ITERATOR_H
 
+#include node.h
+
 class listIterator {
 private:
 	node* current;
@@ -8,11 +10,11 @@ public:
 	explicit listIterator(node* start) :current(start) {}
 
 	bool hasNext() const {
-		return current != nullptr;
+		return current != nullptr && next != nullptr;
 	}
 
 	bool hasPrevious() const {
-		return previous != nullptr;
+		return current != nullptr && previous != nullptr;
 	}
 
 	int next() {
