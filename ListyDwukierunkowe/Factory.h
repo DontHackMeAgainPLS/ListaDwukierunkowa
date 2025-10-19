@@ -1,8 +1,13 @@
 #ifndef FACTORY_H
 #define FACTORY_H
 
-class Factory {
+#include "list.h"
 
+
+class Factory {
+	static list* createLista() {
+	return new list();
+	}
 };
 
 #endif

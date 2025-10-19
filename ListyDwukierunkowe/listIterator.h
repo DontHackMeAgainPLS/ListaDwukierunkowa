@@ -28,6 +28,7 @@ public:
 		current = current->previous;
 		return value;
 	}
+	int getValue() const { return current->data; }
 
 
 };

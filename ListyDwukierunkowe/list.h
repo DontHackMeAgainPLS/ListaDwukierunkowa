@@ -2,15 +2,18 @@
 #define LISTA_H
 
 #include <iostream>
-#include node.h
-#include listIterator.h
+#include "node.h"
+#include "listIterator.h"
 
-class lista {
+class list {
 private:
-	node* head;
-	node* tail;
-public:
-};
+    node* head;
+    node* tail;
 
+public:
+    list() : head(nullptr), tail(nullptr) {}
+
+    //TU DODAÆ OPERACJE NA LISTACH
+};
 
 #endif

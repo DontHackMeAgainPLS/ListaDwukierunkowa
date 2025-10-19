@@ -7,7 +7,7 @@ public:
 	node* next;
 	node* previous;
 	 
-	Node(int value) : data(value), next(nullptr), previous(nullptr) {}
+	node(int value) : data(value), next(nullptr), previous(nullptr) {}
 };
 
 #endif
