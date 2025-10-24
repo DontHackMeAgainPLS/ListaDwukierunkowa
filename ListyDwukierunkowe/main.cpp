@@ -30,11 +30,11 @@ int main()
 	lista->show();
 
 	cout << "\n--- Dodawanie elementu w środku (push_at) ---" << endl;
-	lista->push_at(15, 2); // Wstawienie 15 na indeks 2 (trzecia pozycja, licząc od 0)
+	lista->push_at(15, 2); 
 	cout << "Dodano: 15 na indeksie 2. Aktualna lista: ";
 	lista->show();
 
-	lista->push_at(30, 0); // Wstawienie 30 na indeks 0 (na początek)
+	lista->push_at(30, 0); 
 	cout << "Dodano: 30 na indeksie 0. Aktualna lista: ";
 	lista->show();
 
@@ -62,12 +62,12 @@ int main()
 	cout << endl;
 
 	cout << "\n--- Usuwanie elementu ze środka (pop_at) ---" << endl;
-	lista->pop_at(3); // Usuń element na indeksie 3
+	lista->pop_at(3); 
 	cout << "Usunięto element z indeksu 3 (pop_at(3)). Aktualna lista: ";
 	lista->show();
 
 	cout << "\n--- Próba usunięcia z nieistniejącego indeksu (pop_at) ---" << endl;
-	lista->pop_at(10); // Próba usunięcia elementu z indeksu 10 (powinien obsłużyć błąd)
+	lista->pop_at(10); 
 	cout << "Próba usunięcia elementu z indeksu 10. Aktualna lista: ";
 	lista->show();
 	cout << endl;
@@ -86,7 +86,7 @@ int main()
 	lista->clear();
 	cout << "Lista została wyczyszczona (clear)." << endl;
 	cout << "Aktualna lista (show): ";
-	lista->show(); // Powinno wyświetlić pustą listę lub komunikat o pustej liście
+	lista->show(); 
 
 	cout << "\n--- Dodanie elementu po czyszczeniu ---" << endl;
 	lista->push_front(500);
@@ -94,7 +94,7 @@ int main()
 	lista->show();
 
 	cout << "\n--- Usuwanie listy z pamięci (delete) ---" << endl;
-	delete lista; // zwolnienie pamięci
+	delete lista; 
 	lista = nullptr;
 	cout << "Pamięć zwolniona." << endl;
 

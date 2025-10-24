@@ -14,24 +14,24 @@ void list::push_front(int number) {
 	node* newEl = new node(number);
 	if (head != nullptr) {
 		head->previous = newEl;
-		newEl->next = head; // zmieniam adresy aby nowy element byl na poczatek
+		newEl->next = head; 
 	}
 	else {
 		tail = newEl;
 	}
-	head = newEl; // dodaje nowy element na poczatek
+	head = newEl; 
 }
 
 void list ::push_back(int number) {
 	node* newEl = new node(number);
 	if (tail != nullptr) {
 		tail->next = newEl;
-		newEl->previous = tail; // zmieniam adresy aby nowy element byl na koncu
+		newEl->previous = tail; 
 	}
 	else {
 		head = newEl;
 	}
-	tail = newEl; // dodaje nowy element na koniec
+	tail = newEl; 
 }
 
 void list ::push_at(int number, int index) {
@@ -58,18 +58,18 @@ void list ::push_at(int number, int index) {
 	newEl->previous = current;
 
 	if (current->next) {
-		current->next->previous = newEl; //zmieniam w nastepnym elemecie poprzedni adres na nowo utworzony 
+		current->next->previous = newEl;  
 	}
 
 	else {
 		tail = newEl;
 	}
 
-	current->next = newEl; //zamieniam wskaznik na nastepny element na nowo utworzony element
+	current->next = newEl; 
 }
 
 void list::pop_back() {
-	if (tail == nullptr) {//usuwam ostatni element
+	if (tail == nullptr) {
 		return;
 	}
 	node* temp = tail;
@@ -85,7 +85,7 @@ void list::pop_back() {
 	delete temp;
 }
 
-void list ::pop_front() { //usuwam pierwszy element
+void list ::pop_front() { 
 	if (head == nullptr) {
 		return;
 	}
@@ -114,13 +114,13 @@ void list ::pop_at(int index) {
 	}
 	if (!current) return;
 
-	if (current->previous) current->previous->next = current->next; //zamieniam next elementu poprzedniego 
-	if (current->next) current->next->previous = current->previous; //zamieniam previous elementu nastepnego
-	if (current == tail) tail = current->previous; //jezeli element jet ostatni to zamieniam tylko poprzedni element
-	delete current; //i usuwam aktualny element 
+	if (current->previous) current->previous->next = current->next;  
+	if (current->next) current->next->previous = current->previous;
+	if (current == tail) tail = current->previous;
+	delete current; 
 }
 
-void list::show() { // przechodze przez kolejne iteracje poprzez metode next w iteratorze
+void list::show() {
 	listIterator it(head, false);
 	if (!it.hasNext()) {
 		cout << "Lista jest pusta\n";
@@ -140,7 +140,7 @@ void list ::show_next(int index) {
 	node* current = head;
 	int i = 0;
 
-	while (current && i < index) {//znajduje element o szukanym indeksie 
+	while (current && i < index) { 
 		current = current->next;
 		i++;
 	}
@@ -152,7 +152,7 @@ void list ::show_next(int index) {
 
 	if (current->next) {
 		cout << "Nastepny po indeksie " << index << " (" << current->data
-			<< ") to: " << current->next->data << endl; //wyswietlam dane z nastepnego elementu
+			<< ") to: " << current->next->data << endl; 
 	}
 }
 
@@ -165,7 +165,7 @@ void list::show_previous(int index) {
 	node* current = head;
 	int i = 0;
 
-	while (current && i < index) { //znajduje element o szukanym indeksie 
+	while (current && i < index) {  
 		current = current->next;
 		i++;
 	}
@@ -177,11 +177,11 @@ void list::show_previous(int index) {
 
 	if (current->next) {
 		cout << "Poprzedni po indeksie " << index << " (" << current->data
-			<< ") to: " << current->previous->data << endl; //wyswietlam dane z poprzedniego elementu
+			<< ") to: " << current->previous->data << endl; 
 	}
 }
 
-void list::showReverse() { // przechodze przez kolejne iteracje poprzez metode previous w iteratorze
+void list::showReverse() { 
 	listIterator it(tail, true);
 	if (!it.hasPrevious()) {
 		cout << "Lista jest pusta\n";
@@ -195,7 +195,7 @@ void list::showReverse() { // przechodze przez kolejne iteracje poprzez metode p
 
 void list::clear() {
 	node* current = head;
-	while (current) { //przechodze do head i robie kopie do temp zeby nastepnie przejsc do niej, nastepnie usuwam head
+	while (current) {
 		node* temp = current->next;
 		delete current;
 		current = temp;
