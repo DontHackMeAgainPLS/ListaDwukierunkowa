@@ -1,12 +1,34 @@
-﻿#include <iostream>
-#include "Factory.h" 
-  
+﻿/**
+ * @mainpage Dokumentacja Listy Dwukierunkowej
+ *
+ * @section intro Wprowadzenie
+ *
+ * Ten projekt implementuje prostą, dwukierunkową listę powiązaną w języku C++.
+ * Zastosowano w nim wzorzec projektowy Fabryka do inicjalizacji obiektu listy.
+ *
+ * Dokumentacja zawiera szczegółowy opis:
+ * - Klasy @link node Węzła @endlink.
+ * - Klasy @link listIterator Iteratora @endlink do przechodzenia po liście.
+ * - Głównej klasy @link list Listy @endlink z metodami push/pop.
+ * - Statycznej klasy @link Factory Fabryki @endlink.
+ *
+ * @section usage Przykładowe użycie (main.cpp)
+ *
+ * Poniższy kod demonstruje podstawowe operacje na liście:
+ * dodawanie elementów (push), usuwanie (pop), wyświetlanie (show)
+ * oraz zwalnianie pamięci.
+ */
+
+#include <iostream>
+#include "Factory.h"
+ // ... reszta kodu ...
 
 using namespace std;
 
 
 int main()
 {
+	// ... cały kod funkcji main ...
 	setlocale(LC_ALL, "Polish");
 
 	cout << "--- Inicjalizacja listy ---" << endl;
@@ -30,11 +52,11 @@ int main()
 	lista->show();
 
 	cout << "\n--- Dodawanie elementu w środku (push_at) ---" << endl;
-	lista->push_at(15, 2); 
+	lista->push_at(15, 2);
 	cout << "Dodano: 15 na indeksie 2. Aktualna lista: ";
 	lista->show();
 
-	lista->push_at(30, 0); 
+	lista->push_at(30, 0);
 	cout << "Dodano: 30 na indeksie 0. Aktualna lista: ";
 	lista->show();
 
@@ -62,12 +84,12 @@ int main()
 	cout << endl;
 
 	cout << "\n--- Usuwanie elementu ze środka (pop_at) ---" << endl;
-	lista->pop_at(3); 
+	lista->pop_at(3);
 	cout << "Usunięto element z indeksu 3 (pop_at(3)). Aktualna lista: ";
 	lista->show();
 
 	cout << "\n--- Próba usunięcia z nieistniejącego indeksu (pop_at) ---" << endl;
-	lista->pop_at(10); 
+	lista->pop_at(10);
 	cout << "Próba usunięcia elementu z indeksu 10. Aktualna lista: ";
 	lista->show();
 	cout << endl;
@@ -86,7 +108,7 @@ int main()
 	lista->clear();
 	cout << "Lista została wyczyszczona (clear)." << endl;
 	cout << "Aktualna lista (show): ";
-	lista->show(); 
+	lista->show();
 
 	cout << "\n--- Dodanie elementu po czyszczeniu ---" << endl;
 	lista->push_front(500);
@@ -94,7 +116,7 @@ int main()
 	lista->show();
 
 	cout << "\n--- Usuwanie listy z pamięci (delete) ---" << endl;
-	delete lista; 
+	delete lista;
 	lista = nullptr;
 	cout << "Pamięć zwolniona." << endl;
 
