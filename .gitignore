@@ -1,4 +1,4 @@
-# Pliki generowane przez Visual Studio, które powinny być ignorowane
+# Pliki, które chcemy zignorować
 *.vcxproj.user
 *.suo
 *.pdb
