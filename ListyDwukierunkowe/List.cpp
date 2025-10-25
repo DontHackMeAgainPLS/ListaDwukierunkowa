@@ -1,8 +1,4 @@
-﻿/**
- * @file List.cpp
- * @brief Implementacja metod klasy list.
- */
-
+﻿
 #include <iostream>
 #include "Node.h"
 #include "Iterator.h"
@@ -10,21 +6,12 @@
 
 using namespace std;
 
-/**
- * @brief Konstruktor klasy list.
- *
- * Inicjalizuje pust¹ listê.
- */
 list::list() {
 	head = nullptr;
 	tail = nullptr;
 }
 
-/**
- * @brief Dodaje nowy element na pocz¹tku listy.
- *
- * @param number Wartoœæ do wstawienia.
- */
+
 void list::push_front(int number) {
 	node* newEl = new node(number);
 	if (head != nullptr) {
@@ -37,11 +24,7 @@ void list::push_front(int number) {
 	head = newEl;
 }
 
-/**
- * @brief Dodaje nowy element na koñcu listy.
- *
- * @param number Wartoœæ do wstawienia.
- */
+
 void list::push_back(int number) {
 	node* newEl = new node(number);
 	if (tail != nullptr) {
@@ -54,15 +37,10 @@ void list::push_back(int number) {
 	tail = newEl;
 }
 
-/**
- * @brief Dodaje nowy element na okreœlonym indeksie.
- *
- * @param number Wartoœæ do wstawienia.
- * @param index Indeks wstawienia.
- */
+
 void list::push_at(int number, int index) {
 	if (index <= 0) {
-		push_front(number); // Poprawka: dla index <= 0 wstawiamy na pocz¹tku
+		push_front(number); 
 		return;
 	}
 
@@ -75,7 +53,7 @@ void list::push_at(int number, int index) {
 	}
 
 	if (!current) {
-		push_back(number); // Wstaw na koñcu, jeœli index jest poza zakresem
+		push_back(number); 
 		return;
 	}
 
@@ -94,9 +72,7 @@ void list::push_at(int number, int index) {
 	current->next = newEl;
 }
 
-/**
- * @brief Usuwa element z koñca listy.
- */
+
 void list::pop_back() {
 	if (tail == nullptr) {
 		return;
@@ -114,9 +90,7 @@ void list::pop_back() {
 	delete temp;
 }
 
-/**
- * @brief Usuwa element z pocz¹tku listy.
- */
+
 void list::pop_front() {
 	if (head == nullptr) {
 		return;
@@ -134,11 +108,7 @@ void list::pop_front() {
 	delete temp;
 }
 
-/**
- * @brief Usuwa element z podanego indeksu.
- *
- * @param index Indeks elementu do usuniêcia.
- */
+
 void list::pop_at(int index) {
 	if (!head) return;
 	if (index == 0) { pop_front(); return; }
@@ -157,9 +127,7 @@ void list::pop_at(int index) {
 	delete current;
 }
 
-/**
- * @brief Wyœwietla wszystkie elementy listy od pocz¹tku.
- */
+
 void list::show() {
 	listIterator it(head, false);
 	if (!it.hasNext()) {
@@ -171,11 +139,7 @@ void list::show() {
 	}
 }
 
-/**
- * @brief Wyœwietla wartoœæ elementu nastêpnego po elemencie o danym indeksie.
- *
- * @param index Indeks elementu, którego nastêpnik jest wyœwietlany.
- */
+
 void list::show_next(int index) {
 	if (!head) {
 		cout << "Lista jest pusta.\n";
@@ -204,11 +168,7 @@ void list::show_next(int index) {
 	}
 }
 
-/**
- * @brief Wyœwietla wartoœæ elementu poprzedniego dla elementu o danym indeksie.
- *
- * @param index Indeks elementu, którego poprzednik jest wyœwietlany.
- */
+
 void list::show_previous(int index) {
 	if (!head) {
 		cout << "Lista jest pusta.\n";
@@ -228,7 +188,7 @@ void list::show_previous(int index) {
 		return;
 	}
 
-	// UWAGA: Sprawdzam current->previous, a nie current->next jak w oryginalnym kodzie!
+
 	if (current->previous) {
 		cout << "Poprzedni dla indeksu " << index << " (" << current->data
 			<< ") to: " << current->previous->data << endl;
@@ -238,12 +198,10 @@ void list::show_previous(int index) {
 	}
 }
 
-/**
- * @brief Wyœwietla wszystkie elementy listy od koñca do pocz¹tku.
- */
+
 void list::showReverse() {
 	listIterator it(tail, true);
-	// Zmieniono: iteruje siê tak d³ugo, jak 'current' nie jest nullptr, u¿ywaj¹c 'previous'
+	
 	if (tail == nullptr) {
 		cout << "Lista jest pusta\n";
 		return;
@@ -254,9 +212,7 @@ void list::showReverse() {
 }
 
 
-/**
- * @brief Usuwa wszystkie elementy z listy i zwalnia pamiêæ.
- */
+
 void list::clear() {
 	node* current = head;
 	while (current) {
@@ -269,11 +225,7 @@ void list::clear() {
 }
 
 
-/**
- * @brief Destruktor klasy list.
- *
- * Zwalnia pamiêæ zajmowan¹ przez wszystkie wêz³y.
- */
+
 list::~list() {
 	node* current = head;
 	while (current != nullptr) {
